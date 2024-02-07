@@ -12,9 +12,10 @@ keywords = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.12,<3.13"
 opencv-python = "^4.9.0.80"
 requests = "^2.31.0"
+pyinstaller = "^6.3.0"
 
 [tool.poetry.scripts]
 generateJSON = "streetcatviewer.database:cam_gen"
