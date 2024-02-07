@@ -5,6 +5,7 @@ def main():
     print("Here are all feeders: ")
     for feeder in database.get_cams():
         print(feeder['nickname'])
+    input()
 
 
 if __name__ == "__main__":
