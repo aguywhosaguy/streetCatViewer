@@ -16,6 +16,8 @@ python = "^3.12"
 opencv-python = "^4.9.0.80"
 requests = "^2.31.0"
 
+[tool.poetry.scripts]
+generateJSON = "streetcatviewer.database:cam_gen"
 
 [build-system]
 requires = ["poetry-core"]
