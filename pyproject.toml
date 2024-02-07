@@ -1,12 +1,20 @@
 [tool.poetry]
 name = "streetcatviewer"
 version = "0.1.0"
-description = ""
+description = "A python tool for viewing Hello Street Cat cameras"
 authors = ["aguywhosaguy <aguywhosaguy@aguywhosaguy.com>"]
 readme = "README.md"
+license = "MIT"
+repository = "https://github.com/aguywhosaguy/streetCatViewer"
+keywords = [
+    "Cats",
+    "Tkinter"
+]
 
 [tool.poetry.dependencies]
 python = "^3.12"
+opencv-python = "^4.9.0.80"
+requests = "^2.31.0"
 
 
 [build-system]
