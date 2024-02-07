@@ -14,3 +14,10 @@ def get_cams():
 def cam_gen():
     with open(dataJSON, 'w') as jsonFile:
         jsonFile.write(json.dumps(get_cams(), indent=1))
+
+def read_json():
+    try:
+        with open(dataJSON, 'r') as jsonFile:
+            return json.loads(jsonFile)
+    except:
+        return []
