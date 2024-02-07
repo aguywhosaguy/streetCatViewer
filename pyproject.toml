@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "streetcatviewer"
-version = "0.1.0"
+version = "0.1.1"
 description = "A python tool for viewing Hello Street Cat cameras"
 authors = ["aguywhosaguy <aguywhosaguy@aguywhosaguy.com>"]
 readme = "README.md"
