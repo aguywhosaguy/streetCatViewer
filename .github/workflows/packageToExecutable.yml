@@ -1,27 +1,34 @@
-
 name: Package to Executable
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [main]
 
   workflow_dispatch:
 
 jobs:
-
   build:
-
-    runs-on: ubuntu-latest
-
+    runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-    - name: Package Application
-      uses: JackMcKew/pyinstaller-action-windows@python3-10-pyinstaller-5-3
-      with:
-        path: streetcatviewer
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.12.1
 
-    - uses: actions/upload-artifact@v2
-      with:
-        name: streetcatviewer
-        path: streetcatviewer/dist/
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r streetcatviewer/requirements.txt
+
+      - name: Package Program
+        run: |
+          pyinstaller -F streetcatviewer/main.py
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: streetcatviewer
+          path: dist/main.exe
