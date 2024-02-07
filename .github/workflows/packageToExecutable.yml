@@ -25,10 +25,10 @@ jobs:
 
       - name: Package Program
         run: |
-          pyinstaller streetcatviewer/main.py
+          pyinstaller -F streetcatviewer/main.py
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: streetcatviewer
-          path: dist/main/
+          path: dist/main.exe
