@@ -23,6 +23,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r streetcatviewer/requirements.txt
 
+      - name: Generate requirements.txt
+        run: |
+          poetry export --without-hashes --format=requirements.txt > streetcatviewer/requirements.txt
+          
       - name: Package Program
         run: |
           pyinstaller -F streetcatviewer/main.py
