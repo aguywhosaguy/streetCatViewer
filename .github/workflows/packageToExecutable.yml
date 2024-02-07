@@ -11,17 +11,26 @@ jobs:
 
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+  
+      - name: Setup Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.12.1
+      - name: Install Dependences
+        run: |
+          python -m pip install --upgrade pip
+          pip install streetcatviewer/requirements.txt
+      - name: Package Program
+        run: |
+          pyinstaller streetcatviewer/main.py
+      - name: Upload Artifact
+      - uses: actions/upload-artifact@v2
+        with:
+          name: streetcatviewer
+          path: streetcatviewer/dist/main/
+          
 
-    - name: Package Application
-      uses: JackMcKew/pyinstaller-action-windows@python3-10-pyinstaller-5-3
-      with:
-        path: streetcatviewer
-
-    - uses: actions/upload-artifact@v2
-      with:
-        name: streetcatviewer
-        path: streetcatviewer/dist/
